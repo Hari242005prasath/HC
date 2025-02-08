@@ -55,16 +55,7 @@ Many people suffer from skin diseases, allergies, and other skin-related issues 
 ✅ **Symptom Tracking & Progress Monitoring** – Helps users track skin changes over time.
 ✅ **Data Privacy & Security** – Ensures no data is shared without user consent.
 
----
 
-## 🛠️ Tech Stack
-- **Frontend:** React Native / Flutter
-- **Backend:** Node.js / Python (FastAPI)
-- **AI & ML:** TensorFlow / OpenCV
-- **Database:** Firebase / MongoDB
-- **Cloud:** AWS / Google Cloud
-
----
 
 ## 🎯 Future Scope
 - Expand AI model to detect **rare and complex** skin conditions.
