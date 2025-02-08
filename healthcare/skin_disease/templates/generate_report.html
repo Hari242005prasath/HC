@@ -3,33 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skin Disease Report</title>
+    <title>Skin Disease Report Generator</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
             background-color: #1e1e1e;
             color: white;
-            font-family: Arial, sans-serif;
-            margin: 20px;
             text-align: center;
+            margin: 0;
+            padding: 0;
         }
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-        .form-section, .result-section {
-            width: 100%;
-            max-width: 400px;
+            max-width: 500px;
+            margin: 50px auto;
             padding: 20px;
             background: #2b2b2b;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
-        input {
-            width: 90%;
+        h2 {
+            color: #4CAF50;
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
             padding: 10px;
-            margin: 10px 0;
+            margin-bottom: 15px;
             border-radius: 5px;
             border: none;
             background: #333;
@@ -43,6 +47,7 @@
             border: none;
             cursor: pointer;
             border-radius: 5px;
+            font-size: 16px;
         }
         button:hover {
             background: #45a049;
@@ -50,22 +55,33 @@
     </style>
 </head>
 <body>
-    <h2>🩺 AI-Powered Skin Disease Report</h2>
     <div class="container">
-        <div class="form-section">
-            <form id="reportForm" method="POST">
-                {% csrf_token %}
-                <input type="text" id="disease_name" name="disease_name" placeholder="Enter Skin Disease Name" required>
-                <input type="text" id="age" name="age" placeholder="Enter Age" required>
-                <input type="text" id="skin_type" name="skin_type" placeholder="Enter Skin Type" required>
-                <input type="text" id="severity" name="severity" placeholder="Enter Severity Level" required>
-                <button type="submit">Generate Report</button>
-            </form>
-        </div>
-        <div class="result-section">
-            <h3>Report:</h3>
-            <div id="response">Your report will appear here.</div>
-        </div>
+        <h2>🩺 Skin Disease Report Generator</h2>
+        <form id="reportForm">
+            {% csrf_token %}
+            <label for="disease_name">Disease Name:</label>
+            <input type="text" id="disease_name" name="disease_name" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="skin_type">Skin Type:</label>
+            <select id="skin_type" name="skin_type" required>
+                <option value="oily">Oily</option>
+                <option value="dry">Dry</option>
+                <option value="combination">Combination</option>
+                <option value="sensitive">Sensitive</option>
+            </select>
+
+            <label for="severity">Severity:</label>
+            <select id="severity" name="severity" required>
+                <option value="mild">Mild</option>
+                <option value="moderate">Moderate</option>
+                <option value="severe">Severe</option>
+            </select>
+
+            <button type="submit">Generate Report</button>
+        </form>
     </div>
 
     <script>
@@ -81,15 +97,24 @@
                 },
                 body: formData
             })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("response").innerHTML = data.plan 
-                    ? `<p>${data.plan.replace(/\n/g, "<br>")}</p>` 
-                    : "<p>Error generating report.</p>";
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Failed to generate report.");
+                }
+                return response.blob();
+            })
+            .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = "skin_disease_report.pdf";
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
             })
             .catch(error => {
                 console.error("Error:", error);
-                document.getElementById("response").innerHTML = "<p>Failed to fetch report.</p>";
+                alert("Failed to generate report.");
             });
         });
     </script>
