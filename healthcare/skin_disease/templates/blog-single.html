@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% load static %}
 <html class="no-js" lang="zxx">
   <head>
     <!-- Meta Tags -->
@@ -16,37 +16,37 @@
     <title>Mediplus - Free Medical and Doctor Directory HTML Template.</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/favicon.png" />
+    <link rel="icon" href="{% static 'img/favicon.png' %}" />
 
     <!-- Google Fonts -->
     <link
-      href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+      href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap"
       rel="stylesheet"
     />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <!-- Nice Select CSS -->
-    <link rel="stylesheet" href="css/nice-select.css" />
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}" />
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" />
     <!-- icofont CSS -->
-    <link rel="stylesheet" href="css/icofont.css" />
+    <link rel="stylesheet" href="{% static 'css/icofont.css' %}" />
     <!-- Slicknav -->
-    <link rel="stylesheet" href="css/slicknav.min.css" />
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" />
     <!-- Owl Carousel CSS -->
-    <link rel="stylesheet" href="css/owl-carousel.css" />
+    <link rel="stylesheet" href="{% static 'css/owl-carousel.css' %}" />
     <!-- Datepicker CSS -->
-    <link rel="stylesheet" href="css/datepicker.css" />
+    <link rel="stylesheet" href="{% static 'css/datepicker.css' %}" />
     <!-- Animate CSS -->
-    <link rel="stylesheet" href="css/animate.min.css" />
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}" />
     <!-- Magnific Popup CSS -->
-    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" />
 
     <!-- Medipro CSS -->
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
   </head>
   <body>
     <!-- Preloader -->
@@ -102,7 +102,7 @@
           <div class="row">
             <div class="col-lg-6 col-md-5 col-12">
               <!-- Contact -->
-              
+
               <!-- End Contact -->
             </div>
             <div class="col-lg-6 col-md-7 col-12">
@@ -130,7 +130,9 @@
               <div class="col-lg-3 col-md-3 col-12">
                 <!-- Start Logo -->
                 <div class="logo">
-                  <a href="index.html"><img src="img/logo.png" alt="#" /></a>
+                  <a href="index.html"
+                    ><img src="{% static 'img/logo.png' %}" alt="#"
+                  /></a>
                 </div>
                 <!-- End Logo -->
                 <!-- Mobile Nav -->
@@ -216,7 +218,7 @@
                 <div class="single-main">
                   <!-- News Head -->
                   <div class="news-head">
-                    <img src="img/blog1.jpg" alt="#" />
+                    <img src="{% static 'img/blog1.jpg' %}" alt="#" />
                   </div>
                   <!-- News Title -->
                   <h1 class="news-title">
@@ -230,7 +232,10 @@
                     <div class="meta-left">
                       <span class="author"
                         ><a href="#"
-                          ><img src="img/author1.jpg" alt="#" />Naimur Rahman</a
+                          ><img
+                            src="{% static 'img/author1.jpg' %}"
+                            alt="#"
+                          />Naimur Rahman</a
                         ></span
                       >
                       <span class="date"
@@ -275,12 +280,12 @@
                       <div class="row">
                         <div class="col-lg-6 col-md-6 col-12">
                           <div class="single-image">
-                            <img src="img/blog2.jpg" alt="#" />
+                            <img src="{% static 'img/blog2.jpg' %}" alt="#" />
                           </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-12">
                           <div class="single-image">
-                            <img src="img/blog3.jpg" alt="#" />
+                            <img src="{% static 'img/blog3.jpg' %}" alt="#" />
                           </div>
                         </div>
                       </div>
@@ -376,7 +381,7 @@
                     <div class="single-comments">
                       <div class="main">
                         <div class="head">
-                          <img src="img/author1.jpg" alt="#" />
+                          <img src="{% static 'img/author1.jpg' %}" alt="#" />
                         </div>
                         <div class="body">
                           <h4>Afsana Mimi</h4>
@@ -404,7 +409,7 @@
                     <div class="single-comments left">
                       <div class="main">
                         <div class="head">
-                          <img src="img/author2.jpg" alt="#" />
+                          <img src="{% static 'img/author2.jpg' %}" alt="#" />
                         </div>
                         <div class="body">
                           <h4>Naimur Rahman</h4>
@@ -432,7 +437,7 @@
                     <div class="single-comments">
                       <div class="main">
                         <div class="head">
-                          <img src="img/author3.jpg" alt="#" />
+                          <img src="{% static 'img/author3.jpg' %}" alt="#" />
                         </div>
                         <div class="body">
                           <h4>Suriya Molharta</h4>
@@ -464,6 +469,7 @@
                   <h2>Leave Comments</h2>
                   <!-- Contact Form -->
                   <form class="form" method="post" action="mail/mail.php">
+                    {% csrf_token %}
                     <div class="row">
                       <div class="col-lg-4 col-md-4 col-12">
                         <div class="form-group">
@@ -550,7 +556,7 @@
                 <!-- Single Post -->
                 <div class="single-post">
                   <div class="image">
-                    <img src="img/blog-sidebar1.jpg" alt="#" />
+                    <img src="{% static 'img/blog-sidebar1.jpg' %}" alt="#" />
                   </div>
                   <div class="content">
                     <h5><a href="#">We have annnocuced our new product.</a></h5>
@@ -569,7 +575,7 @@
                 <!-- Single Post -->
                 <div class="single-post">
                   <div class="image">
-                    <img src="img/blog-sidebar2.jpg" alt="#" />
+                    <img src="{% static 'img/blog-sidebar2.jpg' %}" alt="#" />
                   </div>
                   <div class="content">
                     <h5>
@@ -590,7 +596,7 @@
                 <!-- Single Post -->
                 <div class="single-post">
                   <div class="image">
-                    <img src="img/blog-sidebar3.jpg" alt="#" />
+                    <img src="{% static 'img/blog-sidebar3.jpg' %}" alt="#" />
                   </div>
                   <div class="content">
                     <h5>
@@ -769,6 +775,7 @@
                   target="_blank"
                   class="newsletter-inner"
                 >
+                  {% csrf_token %}
                   <input
                     name="email"
                     placeholder="Email Address"
@@ -810,44 +817,44 @@
     <!--/ End Footer Area -->
 
     <!-- jquery Min JS -->
-    <script src="js/jquery.min.js"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
     <!-- jquery Migrate JS -->
-    <script src="js/jquery-migrate-3.0.0.js"></script>
+    <script src="{% static 'js/jquery-migrate-3.0.0.js' %}"></script>
     <!-- jquery Ui JS -->
-    <script src="js/jquery-ui.min.js"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
     <!-- Easing JS -->
-    <script src="js/easing.js"></script>
+    <script src="{% static 'js/easing.js' %}"></script>
     <!-- Color JS -->
-    <script src="js/colors.js"></script>
+    <script src="{% static 'js/colors.js' %}"></script>
     <!-- Popper JS -->
-    <script src="js/popper.min.js"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
     <!-- Bootstrap Datepicker JS -->
-    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
     <!-- Jquery Nav JS -->
-    <script src="js/jquery.nav.js"></script>
+    <script src="{% static 'js/jquery.nav.js' %}"></script>
     <!-- Slicknav JS -->
-    <script src="js/slicknav.min.js"></script>
+    <script src="{% static 'js/slicknav.min.js' %}"></script>
     <!-- ScrollUp JS -->
-    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
     <!-- Niceselect JS -->
-    <script src="js/niceselect.js"></script>
+    <script src="{% static 'js/niceselect.js' %}"></script>
     <!-- Tilt Jquery JS -->
-    <script src="js/tilt.jquery.min.js"></script>
+    <script src="{% static 'js/tilt.jquery.min.js' %}"></script>
     <!-- Owl Carousel JS -->
-    <script src="js/owl-carousel.js"></script>
+    <script src="{% static 'js/owl-carousel.js' %}"></script>
     <!-- counterup JS -->
-    <script src="js/jquery.counterup.min.js"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
     <!-- Steller JS -->
-    <script src="js/steller.js"></script>
+    <script src="{% static 'js/steller.js' %}"></script>
     <!-- Wow JS -->
-    <script src="js/wow.min.js"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
     <!-- Magnific Popup JS -->
-    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
     <!-- Counter Up CDN JS -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
     <!-- Bootstrap JS -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <!-- Main JS -->
-    <script src="js/main.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
   </body>
 </html>

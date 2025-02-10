@@ -89,3 +89,6 @@ def generate_skin_report(request):
             return JsonResponse({"error": f"Error generating report: {str(e)}"}, status=500)
 
     return render(request, "generate_report.html")
+
+def myself(request):
+    return render(request,'index.html')
