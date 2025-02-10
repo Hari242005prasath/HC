@@ -92,3 +92,47 @@ def generate_skin_report(request):
 
 def myself(request):
     return render(request,'index.html')
+
+import google.generativeai as genai
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
+
+API_KEY = "AIzaSyBEjuyLDRRxkYef3KzBkbDO_xzEpDJMlTs"  # Replace with a secure API key
+genai.configure(api_key=API_KEY)
+
+# Store chat history in session
+@csrf_exempt
+def chat_api(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            user_message = data.get("message", "").strip()
+
+            # Retrieve previous chat history from session
+            chat_history = request.session.get("chat_history", [])
+
+            # Gemini Prompt to ensure remedies or clarifications
+            prompt = (
+                f"Previous Chat:\n{chat_history}\n\n"
+                f"User: {user_message}\n"
+                "Respond concisely in 10 words or fewer. "
+                "Do not ask questions. Only provide direct and meaningful answers."
+            )
+
+
+
+
+            model = genai.GenerativeModel("gemini-pro")
+            response = model.generate_content(prompt)
+            response_text = response.text.strip()
+
+            # Update chat history
+            chat_history.append({"user": user_message, "bot": response_text})
+            request.session["chat_history"] = chat_history
+
+            return JsonResponse({"response": response_text, "chat_history": chat_history})
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=500)
+    
+    return JsonResponse({"error": "Invalid request"}, status=400)
